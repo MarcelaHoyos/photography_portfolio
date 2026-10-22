@@ -13,7 +13,7 @@ Mientras falte una, la página muestra un recuadro con el nombre del archivo que
 | Viajes | `viajes-01.jpg` … `viajes-06.jpg` |
 | Interiores | `interiores-01.jpg` … `interiores-06.jpg` |
 | Calle | `calle-01.jpg` … `calle-06.jpg` |
-| Mascotas | `mascotas-01.jpg` … `mascotas-06.jpg` (cuadradas, van en polaroid) |
+| Mascotas | `mascotas-01.jpg` … `mascotas-06.jpg` |
 | Familia | `familia-01.jpg` … `familia-06.jpg` (la 06 es la vertical grande de la derecha) |
 | Conciertos | `conciertos-01.jpg` (la grande) … `conciertos-07.jpg` (la 06 y 07 son horizontales anchas) |
 | Producto | `producto-01.jpg` … `producto-09.jpg` |
