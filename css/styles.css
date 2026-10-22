@@ -167,7 +167,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: clamp(28px, 4vw, 56px);
   align-items: start; padding-block: 40px;
 }
-.about__card { padding: 0 12px 0; }
+.about__card { padding: 12px 12px 0; }
 .card__label {
   display: block; font-family: var(--font-display); text-transform: uppercase;
   color: #222; font-size: 18px; padding: 10px 0 6px;
