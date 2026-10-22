@@ -9,15 +9,11 @@ Mientras falte una, la página muestra un recuadro con el nombre del archivo que
 | Portada | `portada-retrato.jpg` (polaroid), `portada-panoramica.jpg` (horizontal y alargada) |
 | ¿Quién soy? | `sobre-mi-fondo.jpg` (fondo oscuro), `sobre-mi.jpg` (tu foto) |
 | Portafolio destacado | `destacado-conciertos.jpg`, `destacado-mascotas.jpg`, `destacado-familia.jpg`, `destacado-producto.jpg` |
-| Comida y bebida | `comida-01.jpg` … `comida-06.jpg` |
 | Viajes | `viajes-01.jpg` … `viajes-06.jpg` |
-| Interiores | `interiores-01.jpg` … `interiores-06.jpg` |
-| Calle | `calle-01.jpg` … `calle-06.jpg` |
 | Mascotas | `mascotas-01.jpg` … `mascotas-06.jpg` |
 | Familia | `familia-01.jpg` … `familia-06.jpg` (la 06 es la vertical grande de la derecha) |
 | Conciertos | `conciertos-01.jpg` (la grande) … `conciertos-07.jpg` (la 06 y 07 son horizontales anchas) |
 | Producto | `producto-01.jpg` … `producto-09.jpg` |
-| Detrás de cámaras | `detras-01.jpg` … `detras-12.jpg` (se muestran en blanco y negro) |
 | Contacto | `contacto.jpg` |
 
 Consejo: exporta las fotos a unos 2000 px por el lado largo y en calidad ~80 % para que la página cargue rápido.

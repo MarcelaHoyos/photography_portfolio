@@ -200,12 +200,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .grid { display: grid; gap: var(--gap); }
 .grid--3x2 { grid-template-columns: repeat(3, 1fr); }
 .grid--3x2 .photo { aspect-ratio: 1 / 1.05; }
-.grid--2x3 { grid-template-columns: repeat(2, 1fr); }
-.grid--2x3 .photo { aspect-ratio: 1 / .82; }
 .grid--3x3 { grid-template-columns: repeat(3, 1fr); }
 .grid--3x3 .photo { aspect-ratio: 1 / 1; }
 
-/* ---------- 04 Food ---------- */
+/* ---------- Mascotas (cuadrícula 3x2 + texto) ---------- */
 .food {
   display: grid; grid-template-columns: 1.45fr 1fr; gap: clamp(24px, 3vw, 40px) clamp(24px, 4vw, 56px);
   align-items: center;
@@ -247,46 +245,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .conciertos__grid .c-main { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
 .conciertos__grid .c-wide { grid-column: span 2; aspect-ratio: 2 / 1; }
 
-/* ---------- 07 Interior ---------- */
-.interior { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
-.interior__grid { gap: 4px; }
-.interior__text .display { margin-bottom: 24px; }
-.brands { display: flex; flex-wrap: wrap; gap: 6px 28px; text-transform: none; }
-
-/* ---------- 08 Street ---------- */
-.street { display: grid; grid-template-columns: .8fr 2fr .8fr; gap: clamp(18px, 2.5vw, 34px); align-items: center; }
-.street__left .display { margin-bottom: 22px; }
-.street__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.street__gallery .col--down { margin-top: 70px; }
-.street__right h4 { margin-top: 0; }
-
 /* ---------- 09 Product ---------- */
 .product { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
 .product__text .display { margin-bottom: 24px; }
 .product__grid { gap: 4px; }
-
-/* ---------- 11 Behind the scenes ---------- */
-.bts { max-width: none; padding: 0; margin-top: 60px; }
-.bts__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-.bts__grid .photo { aspect-ratio: 4 / 3.1; filter: grayscale(1); }
-.bts__box {
-  position: absolute; inset: 0; margin: auto; height: fit-content;
-  width: min(66%, 900px); background: #000; text-align: center;
-  padding: clamp(32px, 5vw, 64px) clamp(24px, 5vw, 70px);
-  font-size: 12px; line-height: 1.7;
-}
-.bts__box .display { font-size: clamp(40px, 5vw, 72px); margin-bottom: 22px; }
-.bts__sub { color: #fff; margin-bottom: 6px; }
-.bts__box p + p { margin-top: 6px; }
-.bts__link {
-  display: inline-flex; align-items: center; gap: 14px; margin-top: 36px;
-  font-size: 10px; text-transform: uppercase; letter-spacing: .06em;
-}
-.bts__link i { display: inline-block; width: 60px; height: 1px; background: var(--cream); position: relative; }
-.bts__link i::after {
-  content: ""; position: absolute; right: 0; top: -3px;
-  border: solid var(--cream); border-width: 0 1px 1px 0; padding: 3px; transform: rotate(-45deg);
-}
 
 /* ---------- Instagram ---------- */
 .instagram__head {
@@ -366,14 +328,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 @media (max-width: 1000px) {
   .highlights { grid-template-columns: repeat(2, 1fr); }
   .highlights__title { grid-column: 1 / -1; grid-row: auto; }
-  .food, .familia, .interior, .product { grid-template-columns: 1fr; }
+  .food, .familia, .product { grid-template-columns: 1fr; }
   .conciertos__head { grid-template-columns: 1fr; gap: 20px; }
   .familia__text { position: static; }
-  .street { grid-template-columns: 1fr; }
-  .street__gallery { order: 2; }
-  .street__right { order: 3; }
   .travel__strip { grid-template-columns: repeat(3, 1fr); }
-  .bts__grid { grid-template-columns: repeat(3, 1fr); }
   .contact__inner { grid-template-columns: 1fr minmax(180px, 260px); }
   .signature--side { display: none; }
 }
@@ -403,14 +361,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .col .photo.full { min-height: 0; aspect-ratio: 4 / 3; }
   .conciertos__grid { grid-template-columns: repeat(2, 1fr); }
   .conciertos__grid .c-main { aspect-ratio: 4 / 3; grid-row: auto; }
-  .street__gallery { grid-template-columns: repeat(2, 1fr); }
-  .street__gallery .col:last-child { grid-column: 1 / -1; flex-direction: row; }
-  .street__gallery .col:last-child .photo { flex: 1; }
-  .street__gallery .col--down { margin-top: 0; }
   .travel__strip { grid-template-columns: repeat(2, 1fr); }
 
-  .bts__grid { grid-template-columns: repeat(2, 1fr); }
-  .bts__box { position: relative; inset: auto; width: auto; }
 
   .contact__inner { grid-template-columns: 1fr; }
   .contact__row { flex-direction: column; align-items: flex-start; gap: 10px; }
