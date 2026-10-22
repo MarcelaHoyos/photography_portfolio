@@ -66,7 +66,7 @@ const lightbox = document.querySelector(".lightbox");
 const lightboxImg = lightbox.querySelector(".lightbox__img");
 const galleryPhotos = [
   ...document.querySelectorAll(
-    ".grid .photo, .travel__strip .photo, .wedding__gallery .photo, .street__gallery .photo, .bts__grid .photo"
+    ".grid .photo, .travel__strip .photo, .street__gallery .photo, .mascotas__gallery .photo, .familia__gallery .photo, .conciertos__grid .photo, .bts__grid .photo"
   ),
 ];
 let current = 0;

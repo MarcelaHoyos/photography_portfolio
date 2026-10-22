@@ -227,15 +227,44 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .travel__strip .photo { aspect-ratio: 1 / 1.08; }
 
-/* ---------- 06 Wedding ---------- */
-.wedding { display: grid; grid-template-columns: .9fr 1.7fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
-.wedding__text { position: sticky; top: 100px; }
-.wedding__text .display { margin-bottom: 24px; }
-.wedding__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+/* ---------- Familia ---------- */
+.familia { display: grid; grid-template-columns: .9fr 1.7fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.familia__text { position: sticky; top: 100px; }
+.familia__text .display { margin-bottom: 24px; }
+.familia__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .col { display: flex; flex-direction: column; gap: 10px; }
 .col .photo { aspect-ratio: 4 / 3; }
 .col .photo.tall { aspect-ratio: 3 / 4; }
 .col .photo.full { flex: 1; aspect-ratio: auto; min-height: 420px; }
+
+/* ---------- Mascotas ---------- */
+.mascotas__head {
+  display: grid; grid-template-columns: auto 1fr; gap: clamp(24px, 4vw, 64px);
+  align-items: end; margin-bottom: clamp(40px, 5vw, 64px);
+}
+.mascotas__gallery {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 52px) clamp(18px, 3vw, 44px);
+  padding-inline: clamp(0px, 3vw, 40px);
+}
+.pet { padding: 12px 12px 0; rotate: -2.5deg; cursor: zoom-in; transition: rotate .4s ease, scale .4s ease; }
+.pet:nth-child(2n) { rotate: 2deg; }
+.pet:nth-child(3n) { rotate: -1deg; }
+.pet:hover { rotate: 0deg; scale: 1.03; }
+.pet__name {
+  display: block; text-align: center; font-family: var(--font-script);
+  color: #2b221b; font-size: clamp(34px, 3.4vw, 46px); line-height: 1.3; padding-block: 4px 6px;
+}
+
+/* ---------- Conciertos ---------- */
+.conciertos__head {
+  display: grid; grid-template-columns: auto 1fr; gap: clamp(24px, 4vw, 64px);
+  align-items: end; margin-bottom: clamp(32px, 4vw, 48px);
+}
+.conciertos__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+.conciertos__grid .photo { aspect-ratio: 4 / 3; }
+.conciertos__grid .c-main { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+.conciertos__grid .c-wide { grid-column: span 2; aspect-ratio: 2 / 1; }
 
 /* ---------- 07 Interior ---------- */
 .interior { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
@@ -354,8 +383,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 @media (max-width: 1000px) {
   .highlights { grid-template-columns: repeat(2, 1fr); }
   .highlights__title { grid-column: 1 / -1; }
-  .food, .wedding, .interior, .product { grid-template-columns: 1fr; }
-  .wedding__text { position: static; }
+  .food, .familia, .interior, .product { grid-template-columns: 1fr; }
+  .mascotas__head, .conciertos__head { grid-template-columns: 1fr; gap: 20px; }
+  .familia__text { position: static; }
   .street { grid-template-columns: 1fr; }
   .street__gallery { order: 2; }
   .street__right { order: 3; }
@@ -385,9 +415,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
   .grid--3x2 { grid-template-columns: repeat(2, 1fr); }
   .food__title { flex-wrap: wrap; }
-  .wedding__gallery { grid-template-columns: repeat(2, 1fr); }
-  .wedding__gallery .col:last-child { grid-column: 1 / -1; }
+  .familia__gallery { grid-template-columns: repeat(2, 1fr); }
+  .familia__gallery .col:last-child { grid-column: 1 / -1; }
   .col .photo.full { min-height: 0; aspect-ratio: 4 / 3; }
+  .mascotas__gallery { grid-template-columns: repeat(2, 1fr); padding-inline: 0; }
+  .conciertos__grid { grid-template-columns: repeat(2, 1fr); }
+  .conciertos__grid .c-main { aspect-ratio: 4 / 3; grid-row: auto; }
   .street__gallery { grid-template-columns: repeat(2, 1fr); }
   .street__gallery .col:last-child { grid-column: 1 / -1; flex-direction: row; }
   .street__gallery .col:last-child .photo { flex: 1; }
