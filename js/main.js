@@ -45,22 +45,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-// ---------- Video ----------
-const videoFrame = document.querySelector(".video__frame");
-videoFrame.querySelector(".video__play").addEventListener("click", () => {
-  const src = videoFrame.dataset.src;
-  if (!src) {
-    alert("Agrega el enlace de tu video en el atributo data-src de .video__frame (index.html).");
-    return;
-  }
-  const iframe = document.createElement("iframe");
-  iframe.src = src + (src.includes("?") ? "&" : "?") + "autoplay=1";
-  iframe.allow = "autoplay; fullscreen; picture-in-picture";
-  iframe.allowFullscreen = true;
-  videoFrame.innerHTML = "";
-  videoFrame.appendChild(iframe);
-});
-
 // ---------- Lightbox ----------
 const lightbox = document.querySelector(".lightbox");
 const lightboxImg = lightbox.querySelector(".lightbox__img");
