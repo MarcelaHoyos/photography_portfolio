@@ -1,0 +1,404 @@
+/* =========================================================
+   PORTAFOLIO — Marcela Hoyos
+   Paleta y tipografías: cámbialas aquí y se aplican a todo.
+   ========================================================= */
+:root {
+  --bg: #0a0a0a;
+  --cream: #efe6d4;        /* títulos y tarjetas */
+  --text: #e9e2d6;         /* texto de párrafos */
+  --accent: #f0ac98;       /* datos destacados (salmón) */
+  --label: #7b2c1c;        /* texto sobre tarjetas crema */
+  --placeholder: #1a1917;
+
+  --font-display: "Anton", "Bebas Neue", Impact, sans-serif;
+  --font-body: "Montserrat", system-ui, sans-serif;
+  --font-script: "Mrs Saint Delafield", cursive;
+
+  --pad: clamp(20px, 5vw, 72px);
+  --max: 1280px;
+  --gap: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background-color: var(--bg);
+  /* Fondo satinado. Si agregas images/fondo-textura.jpg se usará esa textura. */
+  background-image:
+    url("../images/fondo-textura.jpg"),
+    radial-gradient(ellipse 60% 40% at 20% 10%, rgba(255,255,255,.06), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 85% 35%, rgba(255,255,255,.05), transparent 70%),
+    radial-gradient(ellipse 70% 40% at 30% 70%, rgba(255,255,255,.045), transparent 70%),
+    radial-gradient(ellipse 50% 30% at 80% 90%, rgba(255,255,255,.05), transparent 70%);
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* ---------- Tipografía base ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--cream);
+  font-size: clamp(56px, 9vw, 132px);
+  line-height: .9;
+  letter-spacing: -.005em;
+}
+.body-text { font-size: 13px; line-height: 1.75; max-width: 62ch; }
+.body-text p + p { margin-top: .9em; }
+.body-text h4 {
+  font-size: 13px; font-weight: 700; text-transform: uppercase;
+  color: #fff; margin: 1.8em 0 .5em; letter-spacing: .01em;
+}
+.accent { color: var(--accent); text-transform: uppercase; font-weight: 500; }
+.signature {
+  font-family: var(--font-script);
+  color: var(--cream);
+  font-size: 34px; line-height: 1; white-space: nowrap;
+}
+.signature--lg { display: block; font-size: clamp(48px, 5vw, 72px); margin-top: 40px; }
+
+/* ---------- Fotos y placeholders ---------- */
+.photo { position: relative; overflow: hidden; background: var(--placeholder); }
+.photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.photo.is-missing img { visibility: hidden; }
+.photo.is-missing::after {
+  content: attr(data-file);
+  position: absolute; inset: 0;
+  display: grid; place-items: center; text-align: center; padding: 8px;
+  font-size: 11px; letter-spacing: .05em; color: rgba(239,230,212,.45);
+  border: 1px dashed rgba(239,230,212,.18);
+  background: repeating-linear-gradient(45deg, transparent 0 12px, rgba(255,255,255,.02) 12px 24px);
+}
+.zoomable { cursor: zoom-in; }
+.zoomable:hover img { transform: scale(1.04); }
+
+.polaroid {
+  position: relative; background: #f6f2ea; padding: 10px 10px 34px;
+  box-shadow: 0 25px 50px rgba(0,0,0,.55);
+}
+.polaroid .photo { aspect-ratio: 1 / 1; }
+.polaroid .signature {
+  position: absolute; right: 16px; bottom: 28px; color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,.4);
+}
+.card { display: block; background: var(--cream); padding: 12px; }
+
+/* ---------- Páginas ---------- */
+.page {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(70px, 9vw, 120px) var(--pad);
+}
+.page__num {
+  position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%);
+  font-size: 10px; letter-spacing: .1em; color: rgba(239,230,212,.7);
+}
+
+/* ---------- Navegación ---------- */
+.nav {
+  position: fixed; inset: 0 0 auto; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px var(--pad);
+  transition: background .3s, padding .3s;
+}
+.nav.is-scrolled { background: rgba(10,10,10,.85); backdrop-filter: blur(10px); padding-block: 10px; }
+.nav__logo { font-family: var(--font-display); font-size: 26px; color: var(--cream); letter-spacing: .02em; }
+.nav__links { display: flex; gap: 28px; align-items: center; }
+.nav__links a {
+  font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+  opacity: .8; transition: opacity .2s;
+}
+.nav__links a:hover { opacity: 1; }
+.nav__cta { border: 1px solid var(--cream); padding: 8px 16px; opacity: 1 !important; }
+.nav__cta:hover { background: var(--cream); color: var(--bg); }
+.nav__toggle { display: none; width: 32px; height: 20px; position: relative; }
+.nav__toggle span {
+  position: absolute; left: 0; width: 100%; height: 2px; background: var(--cream); transition: .3s;
+}
+.nav__toggle span:first-child { top: 4px; }
+.nav__toggle span:last-child { bottom: 4px; }
+.nav.is-open .nav__toggle span:first-child { top: 9px; transform: rotate(45deg); }
+.nav.is-open .nav__toggle span:last-child { bottom: 9px; transform: rotate(-45deg); }
+
+/* ---------- 01 Portada ---------- */
+.cover { padding-top: 110px; background: var(--bg); max-width: none; }
+.cover > * { max-width: calc(var(--max) - 2 * var(--pad)); margin-inline: auto; }
+.cover__meta {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px;
+  font-size: 11px; color: var(--cream);
+}
+.cover__meta b { font-weight: 700; text-transform: uppercase; margin-right: 6px; }
+.cover__head {
+  display: grid; grid-template-columns: auto auto 1fr; align-items: center;
+  gap: clamp(10px, 2vw, 24px); margin: clamp(30px, 4vw, 50px) auto;
+}
+.cover__title {
+  font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
+  color: var(--cream); font-size: clamp(84px, 16.5vw, 228px); line-height: .82;
+  letter-spacing: -.01em;
+}
+.cover__vertical {
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-family: var(--font-display); text-transform: uppercase; color: var(--cream);
+  font-size: clamp(16px, 2.4vw, 32px); line-height: 1;
+}
+.cover__polaroid { justify-self: end; width: min(100%, 220px); transform: rotate(2deg); }
+.cover__panorama { aspect-ratio: 4 / 1; }
+
+/* ---------- 02 Who I am ---------- */
+.about { max-width: none; overflow: hidden; }
+.about__bg { position: absolute; inset: 0; background: #111; }
+.about__bg::before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(0,0,0,.35), rgba(0,0,0,.75));
+}
+.about__bg.is-missing::after { display: none; }
+.about__inner {
+  position: relative; z-index: 2; max-width: calc(var(--max) - 2 * var(--pad)); margin: 0 auto;
+  display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: clamp(28px, 4vw, 56px);
+  align-items: start; padding-block: 40px;
+}
+.about__card { padding: 0 12px 0; }
+.card__label {
+  display: block; font-family: var(--font-display); text-transform: uppercase;
+  color: #222; font-size: 18px; padding: 10px 0 6px;
+}
+.about__card .photo { aspect-ratio: 4 / 4.2; }
+.card__name {
+  display: block; font-family: var(--font-display); text-transform: uppercase;
+  color: #3a2d22; font-size: clamp(28px, 3vw, 40px); line-height: 1; padding: 10px 0 12px;
+}
+.facts { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 18px 0 22px; font-size: 12px; }
+.facts b { text-transform: uppercase; font-weight: 700; color: #fff; }
+.facts span { color: var(--accent); text-transform: uppercase; }
+
+/* ---------- 03 Highlights ---------- */
+.highlights {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 2vw, 22px); align-items: start;
+}
+.highlights__title { grid-column: 1 / 3; align-self: center; }
+.hl { transition: transform .35s ease, box-shadow .35s ease; }
+.hl:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 20px 40px rgba(0,0,0,.6); }
+.hl__head {
+  display: flex; justify-content: space-between; padding: 4px 2px 10px;
+  font-family: var(--font-display); text-transform: uppercase; color: var(--label);
+  font-size: clamp(16px, 1.6vw, 22px); line-height: 1;
+}
+.hl .photo { aspect-ratio: 4 / 3; }
+
+/* ---------- Rejillas genéricas ---------- */
+.grid { display: grid; gap: var(--gap); }
+.grid--3x2 { grid-template-columns: repeat(3, 1fr); }
+.grid--3x2 .photo { aspect-ratio: 1 / 1.05; }
+.grid--2x3 { grid-template-columns: repeat(2, 1fr); }
+.grid--2x3 .photo { aspect-ratio: 1 / .82; }
+.grid--3x3 { grid-template-columns: repeat(3, 1fr); }
+.grid--3x3 .photo { aspect-ratio: 1 / 1; }
+
+/* ---------- 04 Food ---------- */
+.food {
+  display: grid; grid-template-columns: 1.45fr 1fr; gap: clamp(24px, 3vw, 40px) clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.food__title { grid-column: 1 / -1; display: flex; align-items: baseline; gap: .12em; }
+.food__title em {
+  font-family: var(--font-body); font-style: italic; text-transform: lowercase; font-weight: 500;
+  font-size: .32em; letter-spacing: 0;
+}
+
+/* ---------- 05 Travel ---------- */
+.travel { padding-bottom: 80px; }
+.travel__intro { max-width: 900px; margin: 0 auto 50px; }
+.travel__intro .display { text-align: center; margin-bottom: 20px; }
+.travel__intro .body-text { max-width: none; }
+.travel__strip {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  margin-inline: calc(var(--pad) * -1);
+}
+.travel__strip .photo { aspect-ratio: 1 / 1.08; }
+
+/* ---------- 06 Wedding ---------- */
+.wedding { display: grid; grid-template-columns: .9fr 1.7fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.wedding__text { position: sticky; top: 100px; }
+.wedding__text .display { margin-bottom: 24px; }
+.wedding__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.col .photo { aspect-ratio: 4 / 3; }
+.col .photo.tall { aspect-ratio: 3 / 4; }
+.col .photo.full { flex: 1; aspect-ratio: auto; min-height: 420px; }
+
+/* ---------- 07 Interior ---------- */
+.interior { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.interior__grid { gap: 4px; }
+.interior__text .display { margin-bottom: 24px; }
+.brands { display: flex; flex-wrap: wrap; gap: 6px 28px; text-transform: none; }
+
+/* ---------- 08 Street ---------- */
+.street { display: grid; grid-template-columns: .8fr 2fr .8fr; gap: clamp(18px, 2.5vw, 34px); align-items: center; }
+.street__left .display { margin-bottom: 22px; }
+.street__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.street__gallery .col--down { margin-top: 70px; }
+.street__right h4 { margin-top: 0; }
+
+/* ---------- 09 Product ---------- */
+.product { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.product__text .display { margin-bottom: 24px; }
+.product__grid { gap: 4px; }
+
+/* ---------- 10 Video ---------- */
+.video__title { text-align: center; margin-bottom: 36px; }
+.video__frame {
+  position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,.6);
+}
+.video__frame .photo { position: absolute; inset: 0; }
+.video__frame iframe, .video__frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video__play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 84px; height: 84px; border-radius: 50%;
+  border: 2px solid var(--cream); color: var(--cream); font-size: 24px; padding-left: 6px;
+  background: rgba(0,0,0,.35); backdrop-filter: blur(4px); transition: .3s;
+}
+.video__play:hover { background: var(--cream); color: var(--bg); transform: translate(-50%, -50%) scale(1.06); }
+
+/* ---------- 11 Behind the scenes ---------- */
+.bts { max-width: none; padding: 0; margin-top: 60px; }
+.bts__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.bts__grid .photo { aspect-ratio: 4 / 3.1; filter: grayscale(1); }
+.bts__box {
+  position: absolute; inset: 0; margin: auto; height: fit-content;
+  width: min(66%, 900px); background: #000; text-align: center;
+  padding: clamp(32px, 5vw, 64px) clamp(24px, 5vw, 70px);
+  font-size: 12px; line-height: 1.7;
+}
+.bts__box .display { font-size: clamp(40px, 5vw, 72px); margin-bottom: 22px; }
+.bts__sub { color: #fff; margin-bottom: 6px; }
+.bts__box p + p { margin-top: 6px; }
+.bts__link {
+  display: inline-flex; align-items: center; gap: 14px; margin-top: 36px;
+  font-size: 10px; text-transform: uppercase; letter-spacing: .06em;
+}
+.bts__link i { display: inline-block; width: 60px; height: 1px; background: var(--cream); position: relative; }
+.bts__link i::after {
+  content: ""; position: absolute; right: 0; top: -3px;
+  border: solid var(--cream); border-width: 0 1px 1px 0; padding: 3px; transform: rotate(-45deg);
+}
+
+/* ---------- 12 Contact ---------- */
+.contact { max-width: 1100px; }
+.contact__inner { display: grid; grid-template-columns: auto minmax(200px, 300px) auto; gap: clamp(16px, 3vw, 32px); align-items: start; }
+.contact__title { font-size: clamp(76px, 11vw, 150px); line-height: .88; }
+.contact__row { display: flex; align-items: flex-end; gap: 22px; }
+.contact__list { list-style: none; font-size: 12px; line-height: 1.9; padding-bottom: 14px; }
+.contact__list b { text-transform: uppercase; font-weight: 600; color: #fff; }
+.contact__list a { color: var(--accent); }
+.contact__list a:hover { text-decoration: underline; }
+.contact__msg { text-transform: none; font-size: 12px; line-height: 1.7; margin-top: 22px; max-width: 70ch; }
+.contact__polaroid { padding-bottom: 14px; transform: rotate(-2deg); margin-top: 10px; }
+.contact__polaroid .photo { aspect-ratio: 1 / 1.05; }
+.signature--side { font-size: clamp(44px, 5vw, 64px); align-self: center; transform: rotate(-12deg); }
+.contact__cta { display: flex; align-items: center; gap: clamp(16px, 3vw, 40px); margin-top: 50px; }
+.contact__cta .display { font-size: clamp(36px, 5vw, 64px); transition: color .3s; }
+.contact__cta:hover .display { color: var(--accent); }
+.contact__arrow { flex: 0 0 clamp(80px, 18vw, 240px); height: 2px; background: var(--cream); position: relative; transition: flex-basis .4s; }
+.contact__arrow::after {
+  content: ""; position: absolute; right: 0; top: -5px;
+  border: solid var(--cream); border-width: 0 2px 2px 0; padding: 5px; transform: rotate(-45deg);
+}
+.contact__cta:hover .contact__arrow { flex-basis: clamp(100px, 22vw, 290px); }
+
+.footer {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  padding: 26px var(--pad); border-top: 1px solid rgba(239,230,212,.12);
+  font-size: 11px; color: rgba(239,230,212,.6); text-transform: uppercase; letter-spacing: .06em;
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.94);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.lightbox.is-open { opacity: 1; pointer-events: auto; }
+.lightbox__img { max-width: 88vw; max-height: 86vh; object-fit: contain; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+.lightbox button { position: absolute; color: var(--cream); font-size: 26px; padding: 16px; opacity: .75; }
+.lightbox button:hover { opacity: 1; }
+.lightbox__close { top: 12px; right: 16px; }
+.lightbox__prev { left: 12px; }
+.lightbox__next { right: 12px; }
+
+/* ---------- Animación de entrada ---------- */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s ease, transform .9s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+.cover__polaroid.reveal.is-visible { transform: rotate(2deg); }
+.contact__polaroid.reveal.is-visible { transform: rotate(-2deg); }
+.signature--side.reveal.is-visible { transform: rotate(-12deg); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1000px) {
+  .highlights { grid-template-columns: repeat(2, 1fr); }
+  .highlights__title { grid-column: 1 / -1; }
+  .food, .wedding, .interior, .product { grid-template-columns: 1fr; }
+  .wedding__text { position: static; }
+  .street { grid-template-columns: 1fr; }
+  .street__gallery { order: 2; }
+  .street__right { order: 3; }
+  .travel__strip { grid-template-columns: repeat(3, 1fr); }
+  .bts__grid { grid-template-columns: repeat(3, 1fr); }
+  .contact__inner { grid-template-columns: 1fr minmax(180px, 260px); }
+  .signature--side { display: none; }
+}
+
+@media (max-width: 760px) {
+  .nav__toggle { display: block; z-index: 2; }
+  .nav__links {
+    position: fixed; inset: 0; flex-direction: column; justify-content: center; gap: 26px;
+    background: rgba(10,10,10,.97); opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .nav.is-open .nav__links { opacity: 1; pointer-events: auto; }
+  .nav__links a { font-size: 15px; }
+
+  .cover__meta { justify-content: flex-start; }
+  .cover__meta p { flex: 1 1 45%; }
+  .cover__head { grid-template-columns: 1fr auto; }
+  .cover__polaroid { grid-column: 1 / -1; justify-self: center; width: 70%; max-width: 260px; }
+  .cover__panorama { aspect-ratio: 2.2 / 1; }
+
+  .about__inner { grid-template-columns: 1fr; }
+  .about__card { max-width: 340px; }
+
+  .grid--3x2 { grid-template-columns: repeat(2, 1fr); }
+  .food__title { flex-wrap: wrap; }
+  .wedding__gallery { grid-template-columns: repeat(2, 1fr); }
+  .wedding__gallery .col:last-child { grid-column: 1 / -1; }
+  .col .photo.full { min-height: 0; aspect-ratio: 4 / 3; }
+  .street__gallery { grid-template-columns: repeat(2, 1fr); }
+  .street__gallery .col:last-child { grid-column: 1 / -1; flex-direction: row; }
+  .street__gallery .col:last-child .photo { flex: 1; }
+  .street__gallery .col--down { margin-top: 0; }
+  .travel__strip { grid-template-columns: repeat(2, 1fr); }
+
+  .bts__grid { grid-template-columns: repeat(2, 1fr); }
+  .bts__box { position: relative; inset: auto; width: auto; }
+
+  .contact__inner { grid-template-columns: 1fr; }
+  .contact__row { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .contact__polaroid { max-width: 280px; }
+  .contact__cta { flex-wrap: wrap; }
+}
