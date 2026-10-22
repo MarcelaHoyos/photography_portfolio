@@ -307,6 +307,24 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border: solid var(--cream); border-width: 0 1px 1px 0; padding: 3px; transform: rotate(-45deg);
 }
 
+/* ---------- Instagram ---------- */
+.instagram__head {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: 16px 32px; margin-bottom: clamp(28px, 4vw, 44px);
+}
+.instagram__handle {
+  display: inline-flex; align-items: center; gap: 14px; padding-bottom: 12px;
+  font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--accent); transition: gap .3s;
+}
+.instagram__handle i { display: inline-block; width: 60px; height: 1px; background: currentColor; position: relative; }
+.instagram__handle i::after {
+  content: ""; position: absolute; right: 0; top: -3px;
+  border: solid currentColor; border-width: 0 1px 1px 0; padding: 3px; transform: rotate(-45deg);
+}
+.instagram__handle:hover { gap: 22px; }
+.instagram__feed { min-height: 120px; }
+
 /* ---------- 12 Contact ---------- */
 .contact { max-width: 1100px; }
 .contact__inner { display: grid; grid-template-columns: auto minmax(200px, 300px) auto; gap: clamp(16px, 3vw, 32px); align-items: start; }

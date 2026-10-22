@@ -20,6 +20,7 @@
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#destacados">Portafolio</a>
       <a href="#detras-de-camaras">Detrás de cámaras</a>
+      <a href="#instagram">Instagram</a>
       <a href="#contacto" class="nav__cta">Contacto</a>
     </nav>
   </header>
@@ -361,6 +362,19 @@
     </div>
   </section>
 
+  <!-- ===================== INSTAGRAM ===================== -->
+  <section class="page instagram" id="instagram">
+    <div class="instagram__head">
+      <h2 class="display reveal">Instagram</h2>
+      <!-- Cambia "tuusuario" por tu usuario de Instagram (en el enlace y en el texto) -->
+      <a href="https://www.instagram.com/tuusuario/" class="instagram__handle reveal" target="_blank" rel="noopener">Sígueme en @tuusuario <i></i></a>
+    </div>
+    <!-- Feed de Instagram con Behold (behold.so). El diseño del feed se cambia desde tu panel de Behold. -->
+    <div class="instagram__feed reveal">
+      <behold-widget feed-id="JFmFFZjNPRGUAs6d14Tr"></behold-widget>
+    </div>
+  </section>
+
   <!-- ===================== CONTACT ===================== -->
   <section class="page contact" id="contacto">
     <div class="contact__inner">
@@ -400,6 +414,14 @@
     <button class="lightbox__next" aria-label="Siguiente">→</button>
   </div>
 
+  <!-- Script de Behold para el feed de Instagram -->
+  <script>
+    (() => {
+      if(window.__bhldScript)return;window.__bhldScript=true;
+      const d=document,s=d.createElement("script");s.type="module";
+      s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+    })();
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
