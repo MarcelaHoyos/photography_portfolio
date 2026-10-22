@@ -143,7 +143,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .cover__title {
   font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
-  color: var(--cream); font-size: clamp(84px, 16.5vw, 228px); line-height: .82;
+  color: var(--cream); font-size: clamp(48px, 14.5vw, 200px); line-height: .82;
   letter-spacing: -.01em;
 }
 .cover__vertical {
@@ -298,7 +298,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .contact { max-width: 1100px; }
 .contact__inner { display: grid; grid-template-columns: auto minmax(200px, 300px) auto; gap: clamp(16px, 3vw, 32px); align-items: start; }
 .contact__title { font-size: clamp(76px, 11vw, 150px); line-height: .88; }
-.contact__row { display: flex; align-items: flex-end; gap: 22px; }
+.contact__row { display: flex; align-items: flex-end; gap: 22px; margin-top: 18px; }
 .contact__list { list-style: none; font-size: 12px; line-height: 1.9; padding-bottom: 14px; }
 .contact__list b { text-transform: uppercase; font-weight: 600; color: #fff; }
 .contact__list a { color: var(--accent); }
