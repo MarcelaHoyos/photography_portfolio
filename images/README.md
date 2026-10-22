@@ -8,7 +8,7 @@ Mientras falte una, la página muestra un recuadro con el nombre del archivo que
 | Fondo de toda la página (opcional, textura satinada) | `fondo-textura.jpg` |
 | Portada | `portada-retrato.jpg` (polaroid), `portada-panoramica.jpg` (horizontal y alargada) |
 | ¿Quién soy? | `sobre-mi-fondo.jpg` (fondo oscuro), `sobre-mi.jpg` (tu foto) |
-| Portafolio destacado | `destacado-gastronomia.jpg`, `destacado-viajes.jpg`, `destacado-familia.jpg`, `destacado-conciertos.jpg`, `destacado-mascotas.jpg`, `destacado-interiores.jpg` |
+| Portafolio destacado | `destacado-conciertos.jpg`, `destacado-mascotas.jpg`, `destacado-familia.jpg`, `destacado-producto.jpg` |
 | Comida y bebida | `comida-01.jpg` … `comida-06.jpg` |
 | Viajes | `viajes-01.jpg` … `viajes-06.jpg` |
 | Interiores | `interiores-01.jpg` … `interiores-06.jpg` |
